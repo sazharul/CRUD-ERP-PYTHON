@@ -1,0 +1,1 @@
+from .app import mainloop # noqa: F401

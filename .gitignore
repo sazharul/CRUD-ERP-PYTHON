@@ -1,0 +1,20 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+
+# Virtualenv
+venv/
+.env
+
+
+# SQLite & app runtime
+instance/
+*.db
+
+
+# Packaging
+build/
+dist/
+*.egg-info/
