@@ -4,6 +4,7 @@ from tkinter import ttk
 from ..config import APP_NAME
 from ..db.session import SessionLocal, init_db
 from .views.customer_view import CustomerView
+from .views.product_view import ProductView
 
 
 
@@ -23,9 +24,12 @@ def mainloop() -> None:
     # One session for the app (single-threaded GUI)
     session = SessionLocal()
 
-
-    app = CustomerView(root, session)
-    app.pack(fill="both", expand=True)
+    nb = ttk.Notebook(root)
+    customers_tab = CustomerView(nb, session)
+    products_tab = ProductView(nb, session)
+    nb.add(customers_tab, text="Customers")
+    nb.add(products_tab, text="Products")
+    nb.pack(fill="both", expand=True)
 
 
     def on_close():
